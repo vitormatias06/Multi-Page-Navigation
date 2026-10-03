@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./ProductCard.css";
 
 function ProductCard({ product, onAddToCart }) {
@@ -17,12 +18,16 @@ function ProductCard({ product, onAddToCart }) {
         </p>
 
         <p className="product-price">
-          ${product.price}
+          ${product.price.toFixed(2)}
         </p>
 
         <button onClick={() => onAddToCart(product)}>
           Add to Cart
         </button>
+
+        <Link to={`/products/${product.id}`}>
+          View Details
+        </Link>
       </div>
     </div>
   );
